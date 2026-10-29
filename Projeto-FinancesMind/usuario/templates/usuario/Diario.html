@@ -1,235 +1,152 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% load static %}
+    
+{% block title %}Diário{% endblock title %}
 
-    <title>Diario</title>
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/diario.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+{% block extralink %}
+    <link rel="stylesheet" href="{% static 'usuario/css/diario.css' %}">
+{% endblock extralink %}
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
-</head>
-<body>
+{% block main %}
 
-    <div class="normal-screen">
-        <header>
-            <div class="visual">
-                <a href=""><img src="../assets/img/FMicon.jpg" class="img  iconFM" alt="" width="40px"></a>
-                <h1>Finances Mind</h1>
+    <div class="diario-container" >
+        <h2 class="titulo-diario">Meu diário</h2>
+
+        <div class="wrapper">
+            <div class="cabecalho_calandario">
+                <p class="data_atual"></p>
+                <div class="icones">
+                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                <span id="next" class="material-symbols-rounded">chevron_right</span>
+                </div>
             </div>
-            <div class="visual">
-                <p><b>Olá, Eduarda</b></p>
-                <a href="./perfil.html"><img src="../assets/img/profile_icon.jpg" class="img" alt="" width="40px"></a>
+
+            <div class="calendario">
+                <ul class="semanas">
+                    <li>Dom</li>
+                    <li>Seg</li>
+                    <li>Ter</li>
+                    <li>Qua</li>
+                    <li>Qui</li>
+                    <li>Sex</li>
+                    <li>Sab</li>
+                </ul>
+
+                <ul class="dias"></ul>
             </div>
-        </header>
-        <nav class="navegacao">
-            <ul>
-                <li><a id="menu-icon" href="./index.html"><span class="material-symbols-outlined">home</span></a></li>
-                <li><a id="menu-icon" href="./Diario.html"><span class="material-symbols-outlined">menu_book</span></a></li>
-                <li><a id="menu-icon" href="./historico.html"><span class="material-symbols-outlined">currency_exchange</span></a></li>
-                <li><a id="menu-icon" href=""><span class="material-symbols-outlined">chat</span></a></li>  
-                <li><a id="menu-icon" href="./logout.html"><span class="material-symbols-outlined">logout</span></a></li>
-            </ul>
-        </nav>
+        </div>
+            <button class="btn-registrar">Fazer registro diário</button>
     </div>
 
-    <div class="small-screen">
-        <header class="header">
-            <div class="visual">
-                <a href=""><img src="../assets/img/FMicon.jpg" class="img  iconFM" alt="" width="40px"></a>
-                <h1>Finances Mind</h1>
+    <div class="registro-lateral fechado">
+    <div class="registro-conteudo">
+        <span class="material-symbols-outlined fechar-registro">close</span>
+
+        <form>
+            <p class="data-registro"></p>
+            <p>Como você se sente hoje?</p>
+
+            <div class="selecionar-emocao">
+                <label class="opcao-emocao">
+                    <input type="radio" name="emocao" value="irritado">
+                    <img class="emocao" src="/FinancesMind/assets/img/angry_face.png">
+                    <span>Irritado</span>
+                </label>
+
+                <label class="opcao-emocao">
+                    <input type="radio" name="emocao" value="feliz">
+                    <img class="emocao" src="/FinancesMind/assets/img/Feliz.png">
+                    <span>Feliz</span>
+                </label>
+
+                <label class="opcao-emocao">
+                    <input type="radio" name="emocao" value="cansado">
+                    <img class="emocao" src="/FinancesMind/assets/img//Cansado.png">
+                    <span>Cansado</span>
+                </label>
+
+                <label class="opcao-emocao">
+                    <input type="radio" name="emocao" value="triste">
+                    <img class="emocao" src="/FinancesMind/assets/img/sad_face.png">
+                    <span>Triste</span>
+                </label>
+
+                <label class="opcao-emocao">
+                    <input type="radio" name="emocao" value="normal">
+                    <img class="emocao" src="/FinancesMind/assets/img/normal_face.png">
+                    <span>Normal</span>            
+                </label>
+
+                <label class="opcao-emocao">
+                    <input type="radio"  name="emocao" value="empolgado">
+                    <img class="emocao" src="/FinancesMind/assets/img/happy_smille.png">
+                    <span>Empolgado</span>
+                </label>
+
+                <label class="opcao-emocao">
+                    <input type="radio" name="emocao" value="ansioso">
+                    <img class="emocao" src="/FinancesMind/assets/img/anciety_face.png">
+                    <span>Ansioso</span>            
+                </label>
             </div>
-            <span class="material-symbols-outlined menu-symbol">menu</span>
-        </header>
-        <nav class="nav-hidden">
-            <span class="material-symbols-outlined close">close</span>
-            <ul>
-                <li>
-                    <div class="visual">
-                        <a href=""><img src="../assets/img/profile_icon.jpg" class="img" alt="" width="30px"></a>
-                        <p>Perfil</p>
-                    </div>
-                </li>
-                <li>
-                    <a id="menu-icon" href="./index.html">
-                        <span class="material-symbols-outlined">home</span>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-icon" href="./Diario.html">
-                        <span class="material-symbols-outlined">menu_book</span>
-                        <span>Diário</span>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-icon" href="./historico.html">
-                        <span class="material-symbols-outlined">currency_exchange</span>
-                        <span>Transações</span>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-icon" href="">
-                        <span class="material-symbols-outlined">chat</span>
-                        <span>Chat</span>
-                    </a>
-                </li>  
-                <li>
-                    <a id="menu-icon" href="./logout.html">
-                        <span class="material-symbols-outlined">logout</span>
-                        <span>Sair</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
 
-    <main id="content">
-        <div class="diario-container" >
-            <h2 class="titulo-diario">Meu diário</h2>
+            <p>O que acha que está fazendo você se sentir assim?</p>
+            <div class="selecionar-causa">
 
-            <div class="wrapper">
-                <div class="cabecalho_calandario">
-                    <p class="data_atual"></p>
-                    <div class="icones">
-                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                    <span id="next" class="material-symbols-rounded">chevron_right</span>
-                    </div>
-                </div>
+                <label class="causa-opcao">
+                    <input type="checkbox" name="causa[]" value="trabalho">
+                    <img src="/FinancesMind/assets/img/trabalho.png">
+                    <span>Trabalho</span>
+                </label>
 
-                <div class="calendario">
-                    <ul class="semanas">
-                        <li>Dom</li>
-                        <li>Seg</li>
-                        <li>Ter</li>
-                        <li>Qua</li>
-                        <li>Qui</li>
-                        <li>Sex</li>
-                        <li>Sab</li>
-                    </ul>
+                <label class="causa-opcao">
+                    <input type="checkbox" name="causa[]" value="imagem">
+                    <img src="/FinancesMind/assets/img/imagem.png">
+                    <span>Imagem</span>
+                </label>
 
-                    <ul class="dias"></ul>
-                </div>
+                <label class="causa-opcao">
+                    <input type="checkbox" name="causa[]" value="familia">
+                    <img src="/FinancesMind/assets/img/familia.png">
+                    <span>Família</span>
+                </label>
+
+                <label class="causa-opcao">
+                    <input type="checkbox" name="causa[]" value="estudos">
+                    <img src="/FinancesMind/assets/img/escola.png">
+                    <span>Estudos</span>
+                </label>
+
+                <label class="causa-opcao">
+                    <input type="checkbox" name="causa[]" value="parceiro">
+                    <img src="/FinancesMind/assets/img/coracao.png">
+                    <span>Parceiro / ex-parceiro</span>
+                </label>
+
+                <label class="causa-opcao">
+                    <input type="checkbox" name="causa[]" value="amigos">
+                    <img src="/FinancesMind/assets/img/amigo.png">
+                    <span>Amigos</span>
+                </label>
+
+                <label class="causa-opcao">
+                    <input type="checkbox" name="causa[]" value="redes">
+                    <img src="/FinancesMind/assets/img/redes.png">
+                    <span>Redes sociais</span>
+                </label>
+
+                <label class="causa-opcao">
+                    <input type="checkbox" name="causa[]" value="financas">
+                    <img src="/FinancesMind/assets/img/porco.png">
+                    <span>Finanças</span>
+                </label>
+
             </div>
-             <button class="btn-registrar">Fazer registro diário</button>
-        </div>
 
+            <textarea placeholder="Que tal procurar entender de onde vieram esses sentimentos?"></textarea>
 
-
-
-        <div class="registro-lateral fechado">
-        <div class="registro-conteudo">
-            <span class="material-symbols-outlined fechar-registro">close</span>
-
-            <form>
-                <p class="data-registro"></p>
-                <p>Como você se sente hoje?</p>
-
-                <div class="selecionar-emocao">
-                    <label class="opcao-emocao">
-                        <input type="radio" name="emocao" value="irritado">
-                        <img class="emocao" src="/FinancesMind/assets/img/angry_face.png">
-                        <span>Irritado</span>
-                    </label>
-
-                    <label class="opcao-emocao">
-                        <input type="radio" name="emocao" value="feliz">
-                        <img class="emocao" src="/FinancesMind/assets/img/Feliz.png">
-                        <span>Feliz</span>
-                    </label>
-
-                    <label class="opcao-emocao">
-                        <input type="radio" name="emocao" value="cansado">
-                        <img class="emocao" src="/FinancesMind/assets/img//Cansado.png">
-                        <span>Cansado</span>
-                    </label>
-
-                    <label class="opcao-emocao">
-                        <input type="radio" name="emocao" value="triste">
-                        <img class="emocao" src="/FinancesMind/assets/img/sad_face.png">
-                        <span>Triste</span>
-                    </label>
-
-                    <label class="opcao-emocao">
-                        <input type="radio" name="emocao" value="normal">
-                        <img class="emocao" src="/FinancesMind/assets/img/normal_face.png">
-                        <span>Normal</span>            
-                    </label>
-
-                    <label class="opcao-emocao">
-                        <input type="radio"  name="emocao" value="empolgado">
-                        <img class="emocao" src="/FinancesMind/assets/img/happy_smille.png">
-                        <span>Empolgado</span>
-                    </label>
-
-                    <label class="opcao-emocao">
-                        <input type="radio" name="emocao" value="ansioso">
-                        <img class="emocao" src="/FinancesMind/assets/img/anciety_face.png">
-                        <span>Ansioso</span>            
-                    </label>
-                </div>
-
-                <p>O que acha que está fazendo você se sentir assim?</p>
-                <div class="selecionar-causa">
-
-                    <label class="causa-opcao">
-                        <input type="checkbox" name="causa[]" value="trabalho">
-                        <img src="/FinancesMind/assets/img/trabalho.png">
-                        <span>Trabalho</span>
-                    </label>
-
-                    <label class="causa-opcao">
-                        <input type="checkbox" name="causa[]" value="imagem">
-                        <img src="/FinancesMind/assets/img/imagem.png">
-                        <span>Imagem</span>
-                    </label>
-
-                    <label class="causa-opcao">
-                        <input type="checkbox" name="causa[]" value="familia">
-                        <img src="/FinancesMind/assets/img/familia.png">
-                        <span>Família</span>
-                    </label>
-
-                    <label class="causa-opcao">
-                        <input type="checkbox" name="causa[]" value="estudos">
-                        <img src="/FinancesMind/assets/img/escola.png">
-                        <span>Estudos</span>
-                    </label>
-
-                    <label class="causa-opcao">
-                        <input type="checkbox" name="causa[]" value="parceiro">
-                        <img src="/FinancesMind/assets/img/coracao.png">
-                        <span>Parceiro / ex-parceiro</span>
-                    </label>
-
-                    <label class="causa-opcao">
-                        <input type="checkbox" name="causa[]" value="amigos">
-                        <img src="/FinancesMind/assets/img/amigo.png">
-                        <span>Amigos</span>
-                    </label>
-
-                    <label class="causa-opcao">
-                        <input type="checkbox" name="causa[]" value="redes">
-                        <img src="/FinancesMind/assets/img/redes.png">
-                        <span>Redes sociais</span>
-                    </label>
-
-                    <label class="causa-opcao">
-                        <input type="checkbox" name="causa[]" value="financas">
-                        <img src="/FinancesMind/assets/img/porco.png">
-                        <span>Finanças</span>
-                    </label>
-
-                </div>
-
-                <textarea placeholder="Que tal procurar entender de onde vieram esses sentimentos?"></textarea>
-
-                <button class="btn-salvar">Salvar registro</button>
-            </form>
-        </div>
+            <button class="btn-salvar">Salvar registro</button>
+        </form>
     </div>
 
     <div class="historico-lateral fechado">
@@ -249,38 +166,8 @@
             <p class="texto-historico"></p>
         </div>
     </div>
-    </main>
 
-    
-
-
-    <div id="float-button">
-        <span class="material-symbols-outlined add-transaction" onclick="openButton()" id="add-transaction">add</span>
-        <div class="buttons" id="buttons">
-            <a href="">
-                <span class="material-symbols-outlined despesa">trending_down</span>
-                <span class="description">Despesa</span>
-            </a>
-            <a href="">
-                <span class="material-symbols-outlined transacao">sync_alt</span>
-                <span class="description">Transações</span>
-            </a>
-            <a href="">
-                <span class="material-symbols-outlined receita">trending_up</span>
-                <span class="description">Receita</span>
-            </a>
-            <a href="./plan-financeiro.html">
-                <span class="material-symbols-outlined planejamento">event_note</span>
-                <span class="description">Planejamento</span>
-            </a>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Finances Mind | Todos os direitos reservados</p>
-    </footer>
-    
-</body>
-
-<script src="/FinancesMind/assets/JS/diario.js" defer></script>
-</html>
+{% block scripts %}
+    <script src="{% static 'usuario/js/diario.js' %}" defer>
+    </script>
+{% endblock scripts %}

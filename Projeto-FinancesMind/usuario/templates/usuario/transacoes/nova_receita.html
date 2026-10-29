@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/novas_transações.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    <title>Adicionar Receita</title>
-</head>
-<body>
-    <div class="overlay" onclick="fecharTela()">
+{% extends "base.html" %}
+{% load static %}
+    
+{% block title %}Nova Receita{% endblock title %}
+
+{% block extralink %}
+    <link rel="stylesheet" href="{% static 'usuario/css/novas_transações.css' %}">
+{% endblock extralink %}
+
+{% block main %}
+    <div class="overlay transacoes-card" onclick="fecharTela()">
         <div class="modal">
             <form id="formNovaReceita" onsubmit="validarReceitaESeguir(event)">
             <div id="adicionar-valor">
-                <button type="button" onclick="fecharTela()"><span class="material-symbols-outlined">close</span></button>
                 <h2><b>Nova Receita</b></h2>
                 <p>Valor da receita</p>
                 <input onclick="EditPreco()" type="text" id="valor-dinheiro" placeholder="R$ 0,00" />
@@ -79,31 +78,31 @@
                         <section id="caras">
                             <input type="radio" name="sentimento" id="feliz"  checked>
                                 <label for="feliz" class="caras_sentimentos">
-                                <img src="../assets/img/happy_smille.png">
+                                <img src="{% static 'usuario/img/happy_smille.png' %}">
                                 <p>Feliz</p>
                                 </label>
                                 
                             <input type="radio" name="sentimento" id="triste">
                                 <label for="triste" class="caras_sentimentos">
-                                <img src="../assets/img/sad_face.png"><p>Triste</p>
+                                <img src="{% static 'usuario/img/sad_face.png' %}"><p>Triste</p>
                                 </label>
                                 
                     
                             <input type="radio" name="sentimento" id="ansioso" >
                                 <label for="ansioso" class="caras_sentimentos">
-                                <img src="../assets/img/anciety_face.png"><p>Ancioso</p>
+                                <img src="{% static 'usuario/img/anciety_face.png' %}"><p>Ancioso</p>
                                 </label>
                                 
                             
                             <input type="radio" name="sentimento" id="zangado">
                                 <label for="zangado" class="caras_sentimentos">
-                                <img src="../assets/img/angry_face.png"><p>Zangado</p>
+                                <img src="{% static 'usuario/img/angry_face.png' %}"><p>Zangado</p>
                                 </label>
                                 
                             
                             <input type="radio" name="sentimento" id="paz">
                                 <label for="paz" class="caras_sentimentos">
-                                <img src="../assets/img/normal_face.png"><p>Paz</p>
+                                <img src="{% static 'usuario/img/normal_face.png' %}"><p>Paz</p>
                                 </label>
                             
                         </section>
@@ -119,9 +118,11 @@
             </div>    
             </form>
         </div>  
+    </div>
 
-    <script src="../assets/JS/transacao.js" defer>
+{% endblock main %}
+
+{% block scripts %}
+    <script src="{% static 'usuario/js/transacao.js' %}" defer>
     </script>
-
-</body>
-</html>
+{% endblock scripts %}

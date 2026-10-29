@@ -1,7 +1,7 @@
 from django.db import models
 
 EMOCOES_CHOICES = [
-    ('feliz' 'Feliz'),
+    ('feliz', 'Feliz'),
     ('triste', 'Triste'),
     ('ansioso', 'Ansioso'),
     ('estressado', 'Estressado'),
