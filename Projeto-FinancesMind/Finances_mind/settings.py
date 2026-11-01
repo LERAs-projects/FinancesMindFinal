@@ -82,6 +82,7 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = 'usuario.Usuario'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
