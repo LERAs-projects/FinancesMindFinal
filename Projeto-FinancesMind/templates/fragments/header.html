@@ -1,0 +1,76 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="normal-screen">
+    <header>
+        <div class="visual">
+            <a href="{% url 'home' %}"><img src="{% static 'img/FMicon.jpg' %}" class="img  iconFM" alt="" width="40px"></a>
+            <h1>Finances Mind</h1>
+        </div>
+        <div class="visual">
+            <p><b>Olá, Eduarda</b></p>
+            <a href=""><img src="" class="img" alt="" width="40px"></a>
+        </div>
+    </header>
+    <nav class="navegacao">
+        <ul>
+            <li><a id="menu-icon" href="{% url 'home' %}"><span class="material-symbols-outlined">home</span></a></li>
+            <li><a id="menu-icon" href=""><span class="material-symbols-outlined">menu_book</span></a></li>
+            <li><a id="menu-icon" href=""><span class="material-symbols-outlined">currency_exchange</span></a></li>
+            <li><a id="menu-icon" href=""><span class="material-symbols-outlined">chat</span></a></li>  
+            <li><a id="menu-icon" href=""><span class="material-symbols-outlined">logout</span></a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="small-screen">
+    <header class="header">
+        <div class="visual">
+            <a href="{% url 'home' %}"><img src="{% static 'img/FMicon.jpg' %}" class="img  iconFM" alt="" width="40px"></a>
+            <h1>Finances Mind</h1>
+        </div>
+        <span class="material-symbols-outlined menu-symbol">menu</span>
+    </header>
+    <nav class="nav-hidden">
+        <span class="material-symbols-outlined close">close</span>
+        <ul>
+            <li>
+                <div class="visual">
+                    <a href=""><img src="" class="img" alt="" width="30px"></a>
+                    <p>Perfil</p>
+                </div>
+            </li>
+            <li>
+                <a id="menu-icon" href="">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a id="menu-icon" href="">
+                    <span class="material-symbols-outlined">menu_book</span>
+                    <span>Diário</span>
+                </a>
+            </li>
+            <li>
+                <a id="menu-icon" href="">
+                    <span class="material-symbols-outlined">currency_exchange</span>
+                    <span>Transações</span>
+                </a>
+            </li>
+            <li>
+                <a id="menu-icon" href="">
+                    <span class="material-symbols-outlined">chat</span>
+                    <span>Chat</span>
+                </a>
+            </li>  
+            <li>
+                <a id="menu-icon" href="">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span>Sair</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

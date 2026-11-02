@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre-se agora - criar conta</title>
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/login_signin.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+    
+{% block title %}Perfil{% endblock title %}
+
+{% block extralink %}
+    <link rel="stylesheet" href="{% static 'usuario/css/login_signin.css' %}">
+{% endblock extralink %}
+
+{% block main %}
     <div class="content">
         <div class="container">
             <form id="formRenda" onsubmit="validarRendaESeguir(event)">
@@ -39,6 +39,8 @@
             </form>
         </div>
     </div>  
-</body>
-<script src="../assets/JS/form-validacao.js"></script>
-</html>
+
+{% block scripts %}
+    <script src="{% static 'usuario/js/form-validacao.js' %}" defer>
+    </script>
+{% endblock scripts %}

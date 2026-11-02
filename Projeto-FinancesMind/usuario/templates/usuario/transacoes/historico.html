@@ -1,237 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico de transações</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/historico.css">
-</head>
-<body>
-    <div class="normal-screen">
-        <header>
-            <div class="visual">
-                <a href=""><img src="../assets/img/FMicon.jpg" class="img  iconFM" alt="" width="40px"></a>
-                <h1>Finances Mind</h1>
-            </div>
-            <div class="visual">
-                <p><b>Olá, Eduarda</b></p>
-                <a href="./perfil.html"><img src="../assets/img/profile_icon.jpg" class="img" alt="" width="40px"></a>
-            </div>
-        </header>
-        <nav class="navegacao">
-            <ul>
-                <li><a id="menu-icon" href="./index.html"><span class="material-symbols-outlined">home</span></a></li>
-                <li><a id="menu-icon" href="./Diario.html"><span class="material-symbols-outlined">menu_book</span></a></li>
-                <li><a id="menu-icon" href="./historico.html"><span class="material-symbols-outlined">currency_exchange</span></a></li>
-                <li><a id="menu-icon" href=""><span class="material-symbols-outlined">chat</span></a></li>  
-                <li><a id="menu-icon" href="./logout.html"><span class="material-symbols-outlined">logout</span></a></li>
-            </ul>
-        </nav>
-    </div>
+{% extends "base.html" %}
+{% load static %}
+    
+{% block title %}Histórico{% endblock title %}
 
-    <div class="small-screen">
-        <header class="header">
-            <div class="visual">
-                <a href=""><img src="../assets/img/FMicon.jpg" class="img  iconFM" alt="" width="40px"></a>
-                <h1>Finances Mind</h1>
-            </div>
-            <span class="material-symbols-outlined menu-symbol">menu</span>
-        </header>
-        <nav class="nav-hidden">
-            <span class="material-symbols-outlined close">close</span>
-            <ul>
-                <li>
-                    <div class="visual">
-                        <a href=""><img src="../assets/img/profile_icon.jpg" class="img" alt="" width="30px"></a>
-                        <p>Perfil</p>
-                    </div>
-                </li>
-                <li>
-                    <a id="menu-icon" href="./index.html">
-                        <span class="material-symbols-outlined">home</span>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-icon" href="./Diario.html">
-                        <span class="material-symbols-outlined">menu_book</span>
-                        <span>Diário</span>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-icon" href="./historico.html">
-                        <span class="material-symbols-outlined">currency_exchange</span>
-                        <span>Transações</span>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-icon" href="">
-                        <span class="material-symbols-outlined">chat</span>
-                        <span>Chat</span>
-                    </a>
-                </li>  
-                <li>
-                    <a id="menu-icon" href="./logout.html">
-                        <span class="material-symbols-outlined">logout</span>
-                        <span>Sair</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+{% block extralink %}
+    <link rel="stylesheet" href="{% static 'usuario/css/historico.css' %}">
+{% endblock extralink %}
 
-    <main class="content" id="content">
-        <div class="container" id="container">
-            <div class="h-section">
-                <h2>Histórico de transações</h2>
-                <div>
-                    <div class="input-content">
-                        <input type="text" placeholder="Pesquisar" name="filter-search">
-                    </div>
-                    <a onclick="filterModal(); event.stopImmediatePropagation()" id="filter">
-                        <p>Filtrar</p>
-                        <span class="material-symbols-outlined">filter_list</span>
-                    </a>  
-                </div>   
-            </div>
-            <div class="historico">
-                <!-- o adequado, caso tivesse back, seria se houvesse um "for" para que o elemento .transaction repetisse de acordo com os registros presentes no banco de dados. Dessa forma, a tag div também faria parte desse "for". -->
-                <div class="transaction">
-                    <h3>qua., 27 de agosto</h3>
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Compra de um pneu</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 500,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Concerto do carro</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 45,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Concerto do carro</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 45,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Concerto do carro</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 45,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Concerto do carro</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 45,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Concerto do carro</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 45,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Concerto do carro</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 45,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Concerto do carro</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 45,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="inf-transaction">  
-                            <span class="material-symbols-outlined">directions_car</span>
-                            <div>
-                                <p>Concerto do carro</p>
-                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                            </div>
-                        </div>
-                        <div class="valor">
-                            <p><strong>R$ 45,00</strong></p>
-                            <p class="legend">lançamento</p>
-                        </div>
-                    </div>
-
+{% block main %}
+    <div class="container" id="container">
+        <div class="h-section">
+            <h2>Histórico de transações</h2>
+            <div>
+                <div class="input-content">
+                    <input type="text" placeholder="Pesquisar" name="filter-search">
                 </div>
-            </div>             
+                <a onclick="filterModal(); event.stopImmediatePropagation()" id="filter">
+                    <p>Filtrar</p>
+                    <span class="material-symbols-outlined">filter_list</span>
+                </a>  
+            </div>   
         </div>
+        <div class="historico">
+            <!-- o adequado, caso tivesse back, seria se houvesse um "for" para que o elemento .transaction repetisse de acordo com os registros presentes no banco de dados. Dessa forma, a tag div também faria parte desse "for". -->
+            <div class="transaction">
+                <h3>qua., 27 de agosto</h3>
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Compra de um pneu</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 500,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
 
-    </main>
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Concerto do carro</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 45,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Concerto do carro</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 45,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Concerto do carro</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 45,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Concerto do carro</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 45,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Concerto do carro</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 45,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Concerto do carro</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 45,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Concerto do carro</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 45,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="inf-transaction">  
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <div>
+                            <p>Concerto do carro</p>
+                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                        </div>
+                    </div>
+                    <div class="valor">
+                        <p><strong>R$ 45,00</strong></p>
+                        <p class="legend">lançamento</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>             
+    </div>
+
 
     <div class="filter-up">
         <div class="content-filter">
@@ -313,9 +236,9 @@
         </div>
     </div>
 
-</body>
+{% endblock main %}
 
-<script src="../assets/JS/historico.js">
-</script>
-
-</html>
+{% block scripts %}
+    <script src="{% static 'usuario/js/historico.js' %}">
+    </script>
+{% endblock scripts %}
