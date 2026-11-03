@@ -1,19 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
     
-{% block title %}Adicionar despesa{% endblock title %}
+{% block title %}Nova Receita{% endblock title %}
 
 {% block extralink %}
-    <link rel="stylesheet" href="{% static 'usuario/css/novas_transações.css' %}">
+    <link rel="stylesheet" href="{% static 'transacoes/css/novas_transacoes.css' %}">
 {% endblock extralink %}
 
 {% block main %}
-
     <div class="overlay transacoes-card" onclick="fecharTela()">
         <div class="modal">
-            <form id="formNovaDespesa" onsubmit="validarDespesaESeguir(event)">
+            <form id="formNovaReceita" onsubmit="validarReceitaESeguir(event)">
             <div id="adicionar-valor">
-                <button type="button" onclick="fecharTela()"><span class="material-symbols-outlined">close</span></button>
                 <h2><b>Nova Receita</b></h2>
                 <p>Valor da receita</p>
                 <input onclick="EditPreco()" type="text" id="valor-dinheiro" placeholder="R$ 0,00" />
