@@ -17,7 +17,7 @@ function validarLoginESeguir(event) {
         return false;
     }
     
-    window.location.href = './index.html';
+    window.location.href = "{% url 'home' %}";
 }
 
 // Signin
@@ -50,7 +50,7 @@ function validarSigninESeguir(event) {
         return false;
     }
     
-    window.location.href = './emotion_quest01.html';
+    window.location.href = "{% url 'usuario:perguntasEmocoes1' %}";
 }
 
 // Renda
@@ -71,7 +71,7 @@ function validarRendaESeguir(event) {
         return false;
     }
     
-    window.location.href = './index.html';
+    window.location.href = "{% url 'home' %}";
 }
 
 // Emoção Quest 01
@@ -85,7 +85,7 @@ function validarEmocao01ESeguir(event) {
         return false;
     }
     
-    window.location.href = './emotion_quest02.html';
+    window.location.href = "{% url 'usuario:perguntasEmocoes2' %}";
 }
 
 // Emoção Quest 02
@@ -99,7 +99,7 @@ function validarEmocao02ESeguir(event) {
         return false;
     }
     
-    window.location.href = './saldo.html';
+    window.location.href = "{% url 'usuario:perguntasSaldo' %}";
 }
 
 // Função auxiliar de validação de email
