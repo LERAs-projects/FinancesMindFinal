@@ -16,7 +16,7 @@
     <nav class="navegacao">
         <ul>
             <li><a id="menu-icon" href="{% url 'home' %}"><span class="material-symbols-outlined">home</span></a></li>
-            <li><a id="menu-icon" href=""><span class="material-symbols-outlined">menu_book</span></a></li>
+            <li><a id="menu-icon" href="{% url 'diario:diario' %}"><span class="material-symbols-outlined">menu_book</span></a></li>
             <li><a id="menu-icon" href=""><span class="material-symbols-outlined">currency_exchange</span></a></li>
             <li><a id="menu-icon" href=""><span class="material-symbols-outlined">chat</span></a></li>  
             <li><a id="menu-icon" href=""><span class="material-symbols-outlined">logout</span></a></li>
@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li>
-                <a id="menu-icon" href="">
+                <a id="menu-icon" href="{% url 'diario:diario' %}">
                     <span class="material-symbols-outlined">menu_book</span>
                     <span>Diário</span>
                 </a>

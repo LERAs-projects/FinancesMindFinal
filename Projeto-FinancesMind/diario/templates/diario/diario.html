@@ -4,7 +4,7 @@
 {% block title %}Diário{% endblock title %}
 
 {% block extralink %}
-    <link rel="stylesheet" href="{% static 'usuario/css/diario.css' %}">
+    <link rel="stylesheet" href="{% static 'diario/css/diario.css' %}">
 {% endblock extralink %}
 
 {% block main %}
@@ -49,43 +49,43 @@
             <div class="selecionar-emocao">
                 <label class="opcao-emocao">
                     <input type="radio" name="emocao" value="irritado">
-                    <img class="emocao" src="/FinancesMind/assets/img/angry_face.png">
+                    <img class="emocao" src="{% static 'diario/img/emojis/irritado.png' %}">
                     <span>Irritado</span>
                 </label>
 
                 <label class="opcao-emocao">
                     <input type="radio" name="emocao" value="feliz">
-                    <img class="emocao" src="/FinancesMind/assets/img/Feliz.png">
+                    <img class="emocao" src="{% static 'diario/img/emojis/feliz.png' %}">
                     <span>Feliz</span>
                 </label>
 
                 <label class="opcao-emocao">
                     <input type="radio" name="emocao" value="cansado">
-                    <img class="emocao" src="/FinancesMind/assets/img//Cansado.png">
+                    <img class="emocao" src="{% static 'diario/img/emojis/cansado.png' %}">
                     <span>Cansado</span>
                 </label>
 
                 <label class="opcao-emocao">
                     <input type="radio" name="emocao" value="triste">
-                    <img class="emocao" src="/FinancesMind/assets/img/sad_face.png">
+                    <img class="emocao" src="{% static 'diario/img/emojis/triste.png' %}">
                     <span>Triste</span>
                 </label>
 
                 <label class="opcao-emocao">
                     <input type="radio" name="emocao" value="normal">
-                    <img class="emocao" src="/FinancesMind/assets/img/normal_face.png">
+                    <img class="emocao" src="{% static 'diario/img/emojis/normal.png' %}">
                     <span>Normal</span>            
                 </label>
 
                 <label class="opcao-emocao">
                     <input type="radio"  name="emocao" value="empolgado">
-                    <img class="emocao" src="/FinancesMind/assets/img/happy_smille.png">
+                    <img class="emocao" src="{% static 'diario/img/emojis/empolgado.png' %}">
                     <span>Empolgado</span>
                 </label>
 
                 <label class="opcao-emocao">
                     <input type="radio" name="emocao" value="ansioso">
-                    <img class="emocao" src="/FinancesMind/assets/img/anciety_face.png">
+                    <img class="emocao" src="{% static 'diario/img/emojis/ansioso.png' %}">
                     <span>Ansioso</span>            
                 </label>
             </div>
@@ -95,49 +95,49 @@
 
                 <label class="causa-opcao">
                     <input type="checkbox" name="causa[]" value="trabalho">
-                    <img src="/FinancesMind/assets/img/trabalho.png">
+                    <img src="{% static 'diario/img/trabalho.png' %}">
                     <span>Trabalho</span>
                 </label>
 
                 <label class="causa-opcao">
                     <input type="checkbox" name="causa[]" value="imagem">
-                    <img src="/FinancesMind/assets/img/imagem.png">
+                    <img src="{% static 'diario/img/imagem.png' %}">
                     <span>Imagem</span>
                 </label>
 
                 <label class="causa-opcao">
                     <input type="checkbox" name="causa[]" value="familia">
-                    <img src="/FinancesMind/assets/img/familia.png">
+                    <img src="{% static 'diario/img/familia.png' %}">
                     <span>Família</span>
                 </label>
 
                 <label class="causa-opcao">
                     <input type="checkbox" name="causa[]" value="estudos">
-                    <img src="/FinancesMind/assets/img/escola.png">
+                    <img src="{% static 'diario/img/escola.png' %}">
                     <span>Estudos</span>
                 </label>
 
                 <label class="causa-opcao">
                     <input type="checkbox" name="causa[]" value="parceiro">
-                    <img src="/FinancesMind/assets/img/coracao.png">
+                    <img src="{% static 'diario/img/coracao.png' %}">
                     <span>Parceiro / ex-parceiro</span>
                 </label>
 
                 <label class="causa-opcao">
                     <input type="checkbox" name="causa[]" value="amigos">
-                    <img src="/FinancesMind/assets/img/amigo.png">
+                    <img src="{% static 'diario/img/amigo.png' %}">
                     <span>Amigos</span>
                 </label>
 
                 <label class="causa-opcao">
                     <input type="checkbox" name="causa[]" value="redes">
-                    <img src="/FinancesMind/assets/img/redes.png">
+                    <img src="{% static 'diario/img/redes.png' %}">
                     <span>Redes sociais</span>
                 </label>
 
                 <label class="causa-opcao">
                     <input type="checkbox" name="causa[]" value="financas">
-                    <img src="/FinancesMind/assets/img/porco.png">
+                    <img src="{% static 'diario/img/porco.png' %}">
                     <span>Finanças</span>
                 </label>
 
@@ -166,8 +166,15 @@
             <p class="texto-historico"></p>
         </div>
     </div>
+{% endblock main %}
 
 {% block scripts %}
-    <script src="{% static 'usuario/js/diario.js' %}" defer>
+    <script>
+        window.DJANGO_CONFIG = {
+            staticURL: "{% static 'diario' %}",
+        };
     </script>
+    <script src="{% static 'diario/js/diario.js' %}" defer>
+    </script>
+    
 {% endblock scripts %}
