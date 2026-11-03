@@ -45,7 +45,8 @@
 
             </form>
         </div>
-    </div>
-</body>
-<script src="../assets/JS/form-validacao.js"></script>
-</html>
+{% endblock content%}
+
+{% block scripts %}
+    <script src="{% static 'usuario/js/form-validacao.js' %}"></script>
+{% endblock scripts %}

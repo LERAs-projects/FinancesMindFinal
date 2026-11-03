@@ -17,7 +17,10 @@ function validarLoginESeguir(event) {
         return false;
     }
     
-    window.location.href = "{% url 'home' %}";
+    window.location.href = "../../.";
+    /* Volta algumas partes do caminho escritos na url até chegar na página principal 
+    ex: 127.0.0.1:8000/usuario/entrar/ 
+    -> 127.0.0.1:8000 */
 }
 
 // Signin
@@ -50,7 +53,7 @@ function validarSigninESeguir(event) {
         return false;
     }
     
-    window.location.href = "{% url 'usuario:perguntasEmocoes1' %}";
+    window.location.href = "emocoes1/";
 }
 
 // Renda
@@ -71,7 +74,10 @@ function validarRendaESeguir(event) {
         return false;
     }
     
-    window.location.href = "{% url 'home' %}";
+    window.location.href = "../../../."; 
+    /* Volta algumas partes do caminho escritos na url até chegar na página principal 
+    ex: 127.0.0.1:8000/usuario/se-cadastrar/renda/ 
+    -> 127.0.0.1:8000 */
 }
 
 // Emoção Quest 01
@@ -85,7 +91,7 @@ function validarEmocao01ESeguir(event) {
         return false;
     }
     
-    window.location.href = "{% url 'usuario:perguntasEmocoes2' %}";
+    window.location.href = "../emocoes2";
 }
 
 // Emoção Quest 02
@@ -99,7 +105,7 @@ function validarEmocao02ESeguir(event) {
         return false;
     }
     
-    window.location.href = "{% url 'usuario:perguntasSaldo' %}";
+    window.location.href = "../saldo";
 }
 
 // Função auxiliar de validação de email

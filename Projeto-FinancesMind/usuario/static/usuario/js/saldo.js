@@ -27,5 +27,5 @@ function validarESeguir(event) {
     }
     
     // Se passou na validação, navegar para a próxima página
-    window.location.href = "{% url 'usuario:perguntasRenda' %}";
+    window.location.href = "../renda/";
 }

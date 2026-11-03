@@ -21,7 +21,9 @@
                     <div>
                         <label for="senha">Senha:</label>
                         <input type="password" name="senha" id="senha" required>
-                        <a href="./reset_password.html" class="forgot-password">Esqueci minha senha</a>
+                        <a href="{% url 'usuario:resetPassword' %}" class="forgot-password">Esqueci minha senha</a>
+                        <a href="{% url 'usuario:signin' %}" class="forgot-password">Criar uma conta</a>
+                        
                     </div>
                     
                     <button type="submit" id="button">Continuar</button>
