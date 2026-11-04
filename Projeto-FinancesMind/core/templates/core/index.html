@@ -10,7 +10,6 @@
 {% endblock extralink %}
 
 {% block main %}
-
         <div class="content back-bege">
             <section class="back-white shadow saldo-atual-secao">
                 <div class="line-flex ">
@@ -80,42 +79,42 @@
                     <div class="flex-column right">
                         <ul class="emojis flex back-white shadow">
                                 <li>
-                                    <a href="Diario.html">
+                                    <a href="{% url 'diario:diario' %}">
                                         <img src="{% static 'core/img/emojis/raiva.png' %}" alt="" width="180px">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Diario.html">
+                                    <a href="{% url 'diario:diario' %}">
                                         <img src="{% static 'core/img/emojis/Feliz.png' %}" alt=""  width="100px">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Diario.html">
+                                    <a href="{% url 'diario:diario' %}">
                                         <img src="{% static 'core/img/emojis/Cansado.png' %}" alt=""  width="180px">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Diario.html">
+                                    <a href="{% url 'diario:diario' %}">
                                         <img src="{% static 'core/img/emojis/Triste.png' %}" alt=""  width="180px">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Diario.html">
+                                    <a href="{% url 'diario:diario' %}">
                                         <img src="{% static 'core/img/emojis/Normal.png' %}" alt=""  width="180px">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Diario.html">
+                                    <a href="{% url 'diario:diario' %}">
                                         <img src="{% static 'core/img/emojis/Empolgado.png' %}" alt=""  width="180px">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Diario.html">
+                                    <a href="{% url 'diario:diario' %}">
                                         <img src="{% static 'core/img/emojis/Ansioso.png' %}" alt=""  width="180px">
                                     </a>
                                 </li>
                         </ul>
-                        <a href="./Diario.html" class="btn">Fazer registro</a>
+                        <a href="{% url 'diario:diario' %}" class="btn">Fazer registro</a>
                     </div>
                 </div>
             </section>

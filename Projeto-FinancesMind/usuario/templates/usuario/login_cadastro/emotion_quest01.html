@@ -1,64 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre-se agora - criar conta</title>
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/login_signin.css">
-</head>
-<body>
-    <div class="content">
-        <div class="container quest01">
-            <form id="formEmocao01" onsubmit="validarEmocao01ESeguir(event)">
-                <fieldset>
-                    <legend><h1 class="title">Quais emoções você tem sentido com mais frequência?</h1></legend>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="raiva" type="checkbox" value="Raiva">
-                        <label for="raiva">Raiva</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="inseguranca" type="checkbox" value="Insegurança">
-                        <label for="inseguranca">Insegurança</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="tristeza" type="checkbox" value="Tristeza">
-                        <label for="tristeza">Tristeza</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="ansiedade" type="checkbox" value="Ansiedade">
-                        <label for="ansiedade">Ansiedade</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="vazio" type="checkbox" value="Vazio">
-                        <label for="vazio">Vazio</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="alegria" type="checkbox" value="Alegria">
-                        <label for="alegria">Alegria</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="medo" type="checkbox" value="Medo">
-                        <label for="medo">Medo</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="desesperanca" type="checkbox" value="Desesperança">
-                        <label for="desesperanca">Desesperança</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="decepcao" type="checkbox" value="Decepção">
-                        <label for="decepcao">Decepção</label>
-                    </div>
-                    <div class="checkbox-container">
-                        <input name="emocoes" id="paz" type="checkbox" value="Paz">
-                        <label for="paz">Paz</label>
-                    </div>
+{% extends "usuario/base_login.html" %}
+{% load static %}
 
-                    <button type="submit" id="button">Continuar</button> 
-                </fieldset>
-            </form>
-        </div>
-    </div>  
-</body>
-<script src="../assets/JS/form-validacao.js"></script>
-</html>
+{% block title %}criar conta {% endblock title %}
+
+{% block content %}
+    <div class="container quest01">
+        <form id="formEmocao01" onsubmit="validarEmocao01ESeguir(event)">
+            <fieldset>
+                <legend><h1 class="title">Quais emoções você tem sentido com mais frequência?</h1></legend>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="raiva" type="checkbox" value="Raiva">
+                    <label for="raiva">Raiva</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="inseguranca" type="checkbox" value="Insegurança">
+                    <label for="inseguranca">Insegurança</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="tristeza" type="checkbox" value="Tristeza">
+                    <label for="tristeza">Tristeza</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="ansiedade" type="checkbox" value="Ansiedade">
+                    <label for="ansiedade">Ansiedade</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="vazio" type="checkbox" value="Vazio">
+                    <label for="vazio">Vazio</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="alegria" type="checkbox" value="Alegria">
+                    <label for="alegria">Alegria</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="medo" type="checkbox" value="Medo">
+                    <label for="medo">Medo</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="desesperanca" type="checkbox" value="Desesperança">
+                    <label for="desesperanca">Desesperança</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="decepcao" type="checkbox" value="Decepção">
+                    <label for="decepcao">Decepção</label>
+                </div>
+                <div class="checkbox-container">
+                    <input name="emocoes" id="paz" type="checkbox" value="Paz">
+                    <label for="paz">Paz</label>
+                </div>
+
+                <button type="submit" id="button">Continuar</button> 
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'usuario/js/form-validacao.js' %}"></script>
+{% endblock scripts %}

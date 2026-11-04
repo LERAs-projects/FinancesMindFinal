@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "usuario/base_login.html" %}
 {% load static %}
     
 {% block title %}Perfil{% endblock title %}
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'usuario/css/login_signin.css' %}">
 {% endblock extralink %}
 
-{% block main %}
+{% block content %}
     <div class="content">
         <div class="container">
             <form id="formRenda" onsubmit="validarRendaESeguir(event)">
@@ -39,6 +39,7 @@
             </form>
         </div>
     </div>  
+{% endblock content %}
 
 {% block scripts %}
     <script src="{% static 'usuario/js/form-validacao.js' %}" defer>

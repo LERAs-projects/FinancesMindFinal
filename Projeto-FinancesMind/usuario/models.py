@@ -45,4 +45,3 @@ class Usuario(AbstractUser):
 
     def get_short_name(self):
         return self.primeiro_nome
-

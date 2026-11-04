@@ -1,41 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre-se agora - criar conta</title>
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/login_signin.css">
-</head>
-<body>
-    <div class="content">
-        <div class="container quest02">
-            <form id="formEmocao02" onsubmit="validarEmocao02ESeguir(event)">
-                <fieldset>
-                    <legend><h1 class="title">"Não me sinto bem comigo mesma não importa o que eu faça"</h1></legend>
-                    <div class="range">
-                        <label for="frase">O quanto você se identifica com essa frase?</label>
-                        <div>
-                            <div class="values">
-                                <span>não me identifico</span>
-                                <span>me identifico parcialmente</span>
-                                <span>me identifico</span>
-                            </div>
-                            <input type="range" name="frase" id="frase" min="0" step="5" max="10" list="answer" required>
-                            <datalist id="answer">
-                                <option value="0">não me identifico</option>
-                                <option value="5">me identifico parcialmente</option>
-                                <option value="10">me identifico</option>
-                            </datalist>
-                        </div>
-                        
-                    </div>
+{% extends "usuario/base_login.html" %}
+{% load static %}
 
-                    <button type="submit" id="button">Continuar</button> 
-                </fieldset>
-            </form>
-        </div>
-    </div>    
-</body>
-<script src="../assets/JS/form-validacao.js"></script>
-</html>
+{% block title %}criar conta {% endblock title %}
+
+{% block content %}
+    <div class="container quest02">
+        <form id="formEmocao02" onsubmit="validarEmocao02ESeguir(event)">
+            <fieldset>
+                <legend><h1 class="title">"Não me sinto bem comigo mesma não importa o que eu faça"</h1></legend>
+                <div class="range">
+                    <label for="frase">O quanto você se identifica com essa frase?</label>
+                    <div>
+                        <div class="values">
+                            <span>não me identifico</span>
+                            <span>me identifico parcialmente</span>
+                            <span>me identifico</span>
+                        </div>
+                        <input type="range" name="frase" id="frase" min="0" step="5" max="10" list="answer" required>
+                        <datalist id="answer">
+                            <option value="0">não me identifico</option>
+                            <option value="5">me identifico parcialmente</option>
+                            <option value="10">me identifico</option>
+                        </datalist>
+                    </div>
+                    
+                </div>
+
+                <button type="submit" id="button">Continuar</button> 
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'usuario/js/form-validacao.js' %}"></script>
+{% endblock scripts %}

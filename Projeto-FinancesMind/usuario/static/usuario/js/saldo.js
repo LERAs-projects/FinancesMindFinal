@@ -27,5 +27,5 @@ function validarESeguir(event) {
     }
     
     // Se passou na validação, navegar para a próxima página
-    window.location.href = './renda_inf.html';
+    window.location.href = "../renda/";
 }
