@@ -17,6 +17,10 @@ class Usuario(AbstractUser):
     saldo = models.DecimalField(max_digits=17, decimal_places=2, null=False, blank=False, default=0)
     profissao = models.CharField(max_length=200, blank=True, null=False)
     renda_mensal = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+
+    foto = models.ImageField(null=True, blank=True)
+    pins_curtidos = models.ManyToManyField("Pin")
+
     #password herdado
 
     USERNAME_FIELD = 'email'
@@ -47,19 +51,6 @@ class Usuario(AbstractUser):
 
     def get_short_name(self):
         return self.primeiro_nome
-
-
-class Perfil():
-    usuario = models.OneToOneField(
-        Usuario, 
-        on_delete=models.CASCADE,
-        related_name='Perfil',
-    )
-    foto = models.ImageField(null=True, blank=True)
-    pins_curtidos = models.ManyToManyField("Pin")
-
-    def __str__(self):
-        return self.usuario.nome
 
 
 class Analise():
