@@ -2,8 +2,9 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.functions import Lower
 
-from .managers import UsuarioManager
 
+from core.models import Pin
+from .managers import UsuarioManager
 
 class Usuario(AbstractUser):
     username = None
@@ -48,3 +49,37 @@ class Usuario(AbstractUser):
         return self.primeiro_nome
 
 
+class Perfil():
+    usuario = models.OneToOneField(
+        Usuario, 
+        on_delete=models.CASCADE,
+        related_name='Perfil',
+    )
+    foto = models.ImageField(null=True, blank=True)
+    pins_curtidos = models.ManyToManyField("Pin")
+
+    def __str__(self):
+        return self.usuario.nome
+
+
+class Analise():
+    from transacoes.models import Despesa, Receita, Transferencia
+    TOTALDIAS_CHOICES = [
+        (7, "7 dias"),
+        (15, "15 dias"),
+        (30, "30 dias"),
+        (60, "60 dias"),
+        (90, "90 dias"),
+    ]
+
+    usuario = models.ForeignKey(
+        Usuario,
+        on_delete=models.PROTECT,
+        related_name='Analise'
+    )
+    data = models.DateField()
+    periodo_dias = models.IntegerField(choices=TOTALDIAS_CHOICES)
+    despesas = models.ManyToManyField(Despesa,)
+    receitas = models.ManyToManyField(Receita,)
+
+    

@@ -1,4 +1,5 @@
 from django.db import models
+from usuario.models import Usuario
 
 EMOCOES_CHOICES = [
     ('feliz', 'Feliz'),
@@ -25,6 +26,11 @@ class Transacao(models.Model):
 
 class Receita(Transacao):
 
+    usuario = models.ForeignKey(
+        Usuario,
+        on_delete=models.CASCADE,
+        related_name='Receita',
+    )
     lancamento = models.CharField(choices=LANCAMENTO_CHOICES, null=False)
 
 class Transferencia(Transacao):
@@ -38,6 +44,11 @@ class Transferencia(Transacao):
         ('conjunta', 'Conta Conjunta'),
     ]
 
+    usuario = models.ForeignKey(
+            Usuario,
+            on_delete=models.CASCADE,
+            related_name='Transferencia',
+        )
     conta_origem = models.CharField(choices=TIPOS_CONTAS_CHOICES, default='corrente', null=False)
     conta_destino = models.CharField(choices=TIPOS_CONTAS_CHOICES, null=False)
 
@@ -60,6 +71,11 @@ class Despesa(Transacao):
         ('outros', 'Outros'),
     ]
 
+    usuario = models.ForeignKey(
+            Usuario,
+            on_delete=models.CASCADE,
+            related_name='Despesa',
+        )
     lancamento = models.CharField(choices=LANCAMENTO_CHOICES, null=False)
     categoria = models.CharField(choices=CATEGORIA_CHOICES, null=False)
 
