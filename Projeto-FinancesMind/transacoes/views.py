@@ -9,3 +9,6 @@ def novaTransferencia(request):
 
 def novaReceita(request):
     return render(request, 'transacoes/nova_receita.html')
+
+def historico(request):
+    return render(request, 'transacoes/historico.html')

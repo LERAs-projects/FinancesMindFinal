@@ -8,233 +8,201 @@
 {% endblock extralink %}
 
 {% block main %}
-    <div class="container" id="container">
-        <div class="h-section">
-            <h2>Histórico de transações</h2>
-            <div>
-                <div class="input-content">
-                    <input type="text" placeholder="Pesquisar" name="filter-search">
-                </div>
-                <a onclick="filterModal(); event.stopImmediatePropagation()" id="filter">
-                    <p>Filtrar</p>
-                    <span class="material-symbols-outlined">filter_list</span>
-                </a>  
-            </div>   
-        </div>
-        <div class="historico">
-            <!-- o adequado, caso tivesse back, seria se houvesse um "for" para que o elemento .transaction repetisse de acordo com os registros presentes no banco de dados. Dessa forma, a tag div também faria parte desse "for". -->
-            <div class="transaction">
-                <h3>qua., 27 de agosto</h3>
+    <div class="content">
+        <div class="container" id="container">
+            <div class="h-section">
+                <h2>Histórico de transações</h2>
                 <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Compra de um pneu</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
+                    <div class="input-content">
+                        <input type="text" placeholder="Pesquisar" name="filter-search">
                     </div>
-                    <div class="valor">
-                        <p><strong>R$ 500,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
+                    <a onclick="filterModal(); event.stopImmediatePropagation()" id="filter">
+                        <p>Filtrar</p>
+                        <span class="material-symbols-outlined">filter_list</span>
+                    </a>
                 </div>
-
-                <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Concerto do carro</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
-                    </div>
-                    <div class="valor">
-                        <p><strong>R$ 45,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Concerto do carro</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
-                    </div>
-                    <div class="valor">
-                        <p><strong>R$ 45,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Concerto do carro</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
-                    </div>
-                    <div class="valor">
-                        <p><strong>R$ 45,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Concerto do carro</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
-                    </div>
-                    <div class="valor">
-                        <p><strong>R$ 45,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Concerto do carro</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
-                    </div>
-                    <div class="valor">
-                        <p><strong>R$ 45,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Concerto do carro</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
-                    </div>
-                    <div class="valor">
-                        <p><strong>R$ 45,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Concerto do carro</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
-                    </div>
-                    <div class="valor">
-                        <p><strong>R$ 45,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="inf-transaction">  
-                        <span class="material-symbols-outlined">directions_car</span>
-                        <div>
-                            <p>Concerto do carro</p>
-                            <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
-                        </div>
-                    </div>
-                    <div class="valor">
-                        <p><strong>R$ 45,00</strong></p>
-                        <p class="legend">lançamento</p>
-                    </div>
-                </div>
-
             </div>
-        </div>             
-    </div>
-
-
-    <div class="filter-up">
-        <div class="content-filter">
-            <span class="material-symbols-outlined close-filter">close</span>
-            <h4>Filtrar</h4>
-            <form action="">
-                <div>
-                    <p>Filtrar por intervalo de data</p>
-                    <div class="intervalo" >
-                        <input type="radio" name="intervalo" id="intervalo1" value="Últimos 15 dias">
-                        <label for="intervalo1" class="intervalo1">Últimos 15 dias</label>
-                        <input type="radio" name="intervalo" id="intervalo2" value="Últimos 30 dias">
-                        <label for="intervalo2" class="intervalo2">Últimos 30 dias</label>
+            <div class="historico">
+                <!-- o adequado, caso tivesse back, seria se houvesse um "for" para que o elemento .transaction repetisse de acordo com os registros presentes no banco de dados. Dessa forma, a tag div também faria parte desse "for". -->
+                <div class="transaction">
+                    <h3>qua., 27 de agosto</h3>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Compra de um pneu</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 500,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Concerto do carro</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 45,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Concerto do carro</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 45,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Concerto do carro</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 45,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Concerto do carro</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 45,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Concerto do carro</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 45,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Concerto do carro</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 45,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Concerto do carro</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 45,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inf-transaction">
+                            <span class="material-symbols-outlined">directions_car</span>
+                            <div>
+                                <p>Concerto do carro</p>
+                                <p class="legend">Carteira | <span class="despesa">Despesa</span></p>
+                            </div>
+                        </div>
+                        <div class="valor">
+                            <p><strong>R$ 45,00</strong></p>
+                            <p class="legend">lançamento</p>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <p>Customizar período</p>
-                    <div id="periodo-date">
-                        <label class="inicio" for="inicio">inicio</label>
-                        <input type="date" class="inative" name="periodo" id="inicio" class="inicio">
-                        <label class="fim" for="fim">fim</label>
-                        <input type="date" class="inative" name="periodo" id="fim" class="fim">
-                    </div>
-                </div>
-                <div>
-                    <p>Categoria da transação</p>
-                    <select name="categoria" id="categoria">
-                        <option value="alimentação">Alimentação</option>
-                        <option value="transporte">Transporte</option>
-                        <option value="moradia">Moradia</option>
-                        <option value="saúde">Saúde</option>
-                        <option value="lazer">Lazer</option>
-                    </select>
-                </div>
-                <div>
-                    <p>Valor da transação</p>
-                    <div class="values">
-                        <span>0</span>
-                        <span>200</span>
-                        <span>400</span>
-                        <span>600</span>
-                        <span>800</span>
-                        <span>1000</span>
-                    </div>
-                    <input type="range" name="valor" id="valor" min="0" step="200" max="1000" list="valor">
-                    <datalist id="valor">
-                        <option value="0">0</option>
-                        <option value="100">200</option>
-                        <option value="200">400</option>
-                        <option value="300">600</option>
-                        <option value="400">800</option>
-                        <option value="500">1000</option>
-                    </datalist>
-                </div>   
-                <button type="submit">Filtrar</button>     
-            </form>
+            </div>
         </div>
-    </div>
-
-    <div id="float-button">
-        <span class="material-symbols-outlined add-transaction" onclick="openButton()" id="add-transaction">add</span>
-        <div class="buttons" id="buttons">
-            <a href="">
-                <span class="material-symbols-outlined despesa">trending_down</span>
-                <span class="description">Despesa</span>
-            </a>
-            <a href="">
-                <span class="material-symbols-outlined transacao">sync_alt</span>
-                <span class="description">Transações</span>
-            </a>
-            <a href="">
-                <span class="material-symbols-outlined receita">trending_up</span>
-                <span class="description">Receita</span>
-            </a>
-            <a href="./plan-financeiro.html">
-                <span class="material-symbols-outlined planejamento">event_note</span>
-                <span class="description">Planejamento</span>
-            </a>
+        <div class="filter-up">
+            <div class="content-filter">
+                <span class="material-symbols-outlined close-filter">close</span>
+                <h4>Filtrar</h4>
+                <form action="">
+                    <div>
+                        <p>Filtrar por intervalo de data</p>
+                        <div class="intervalo" >
+                            <input type="radio" name="intervalo" id="intervalo1" value="Últimos 15 dias">
+                            <label for="intervalo1" class="intervalo1">Últimos 15 dias</label>
+                            <input type="radio" name="intervalo" id="intervalo2" value="Últimos 30 dias">
+                            <label for="intervalo2" class="intervalo2">Últimos 30 dias</label>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Customizar período</p>
+                        <div id="periodo-date">
+                            <label class="inicio" for="inicio">inicio</label>
+                            <input type="date" class="inative" name="periodo" id="inicio" class="inicio">
+                            <label class="fim" for="fim">fim</label>
+                            <input type="date" class="inative" name="periodo" id="fim" class="fim">
+                        </div>
+                    </div>
+                    <div>
+                        <p>Categoria da transação</p>
+                        <select name="categoria" id="categoria">
+                            <option value="alimentação">Alimentação</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="moradia">Moradia</option>
+                            <option value="saúde">Saúde</option>
+                            <option value="lazer">Lazer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Valor da transação</p>
+                        <div class="values">
+                            <span>0</span>
+                            <span>200</span>
+                            <span>400</span>
+                            <span>600</span>
+                            <span>800</span>
+                            <span>1000</span>
+                        </div>
+                        <input type="range" name="valor" id="valor" min="0" step="200" max="1000" list="valor">
+                        <datalist id="valor">
+                            <option value="0">0</option>
+                            <option value="100">200</option>
+                            <option value="200">400</option>
+                            <option value="300">600</option>
+                            <option value="400">800</option>
+                            <option value="500">1000</option>
+                        </datalist>
+                    </div>
+                    <button type="submit">Filtrar</button>
+                </form>
+            </div>
         </div>
-    </div>
 
 {% endblock main %}
 

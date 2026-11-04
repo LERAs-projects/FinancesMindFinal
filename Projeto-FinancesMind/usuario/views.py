@@ -25,11 +25,10 @@ def perguntasRenda(request):
 def logout(request):
     return render(request, "usuario/login_cadastro/logout.html")
 
-# Transacoes:
+# perfil:
+def perfil_view(request):
+    return render(request, "usuario/perfil.html")
 
-def verDiario(request):
-    pass
-
-def registroEmocao(request):
-    pass
-
+# análise:
+def analise_view(request):
+    return render(request, "usuario/analise.html") 
