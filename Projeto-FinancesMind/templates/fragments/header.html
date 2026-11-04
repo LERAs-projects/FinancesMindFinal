@@ -10,16 +10,16 @@
         </div>
         <div class="visual">
             <p><b>Olá, Eduarda</b></p>
-            <a href=""><img src="" class="img" alt="" width="40px"></a>
+            <a href="{% url 'usuario:perfil' %}"><img src="{% static 'usuario/img/profile_icon.jpg' %}" class="img" alt="" width="40px"></a>
         </div>
     </header>
     <nav class="navegacao">
         <ul>
             <li><a id="menu-icon" href="{% url 'home' %}"><span class="material-symbols-outlined">home</span></a></li>
             <li><a id="menu-icon" href="{% url 'diario:diario' %}"><span class="material-symbols-outlined">menu_book</span></a></li>
-            <li><a id="menu-icon" href=""><span class="material-symbols-outlined">currency_exchange</span></a></li>
-            <li><a id="menu-icon" href=""><span class="material-symbols-outlined">chat</span></a></li>  
-            <li><a id="menu-icon" href=""><span class="material-symbols-outlined">logout</span></a></li>
+            <li><a id="menu-icon" href="{% url 'historico' %}"><span class="material-symbols-outlined">currency_exchange</span></a></li>
+            <!-- <li><a id="menu-icon" href=""><span class="material-symbols-outlined">chat</span></a></li>   -->
+            <li><a id="menu-icon" href="{% url 'usuario:logout' %}"><span class="material-symbols-outlined">logout</span></a></li>
         </ul>
     </nav>
 </div>
@@ -37,7 +37,7 @@
         <ul>
             <li>
                 <div class="visual">
-                    <a href=""><img src="" class="img" alt="" width="30px"></a>
+                    <a href="{% url 'usuario:perfil' %}"><img src="{% static 'usuario/img/profile_icon.jpg' %}" class="img" alt="perfil" width="30px"></a>
                     <p>Perfil</p>
                 </div>
             </li>
@@ -54,19 +54,19 @@
                 </a>
             </li>
             <li>
-                <a id="menu-icon" href="">
+                <a id="menu-icon" href="{% url 'historico' %}">
                     <span class="material-symbols-outlined">currency_exchange</span>
                     <span>Transações</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a id="menu-icon" href="">
                     <span class="material-symbols-outlined">chat</span>
                     <span>Chat</span>
                 </a>
-            </li>  
+            </li>   -->
             <li>
-                <a id="menu-icon" href="">
+                <a id="menu-icon" href="{% url 'usuario:logout' %}">
                     <span class="material-symbols-outlined">logout</span>
                     <span>Sair</span>
                 </a>
