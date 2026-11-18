@@ -10,11 +10,15 @@
 {% block main %}
     <div class="overlay transacoes-card" onclick="fecharTela()">
         <div class="modal">
-            <form id="formNovaReceita" onsubmit="validarReceitaESeguir(event)">
+            <form method="post" action="" id="formNovaReceita" onsubmit="validarReceitaESeguir(event)">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
             <div id="adicionar-valor">
                 <h2><b>Nova Receita</b></h2>
                 <p>Valor da receita</p>
-                <input onclick="EditPreco()" type="text" id="valor-dinheiro" placeholder="R$ 0,00" />
+                <input name="valor" value="{{ form.valor.value|default_if_none:'' }}" onclick="EditPreco()" type="text" id="valor-dinheiro" placeholder="R$ 0,00" />
+                {{ form.valor.errors }}
             </div>
             <div id="container">
                 <div class="container-das-colunas">
@@ -22,25 +26,13 @@
                         
                         <section class="sessao-primeira-coluna">
                             <h3><b>Categoria</b></h3> 
-                            <select class="botao_categoria" name="rental-option">
-                                <option value="Alimentação">Alimentação</option>
-                                <option value="Transporte">Transporte</option>
-                                <option value="Moradia">Moradia</option>
-                                <option value="Saúde">Saúde</option>
-                                <option value="Educação">Educação</option>
-                                <option value="Lazer">Lazer</option>
-                                <option value="Compras">Compras</option>
-                                <option value="Assinaturas">Assinaturas</option>
-                                <option value="Contas fixas">Contas fixas</option>
-                                <option value="Impostos">Impostos</option>
-                                <option value="Dívidas">Dívidas</option>
-                                <option value="Investimentos">Investimentos</option>
-                                <option value="Poupança">Poupança</option>
-                                <option value="Seguros">Seguros</option>
-                                <option value="Doações">Doações</option>
-                                <option value="Outros">Outros</option>
+                            <select class="botao_categoria" name="categoria">
+                                {% for value, label in form.categoria.field.choices %}
+                                {% if value %}
+                                <option value="{{ value }}" {% if form.categoria.value == value %}selected{% endif %}>{{ label }}</option>
+                                {% endif %}
+                                {% endfor %}
                             </select>
-                        </section>
                         <section class="sessao-primeira-coluna">
                             <h3><b>Lançamento*</b></h3>
                             <div class="lancamento">
@@ -58,13 +50,14 @@
                         <section class="sessao-primeira-coluna">
                             <h3><b>Data</b></h3>
                             <div class="data-selecao">
-                                <input type="radio" name="data-lancamento" id="hoje" checked>
+                                <input type="hidden" name="data" id="data-final" value="{{ today|date:'Y-m-d' }}">
+                                <input type="radio" name="atalho-data" id="hoje" data-valor="{{ today|date:'Y-m-d' }}" checked>
                                 <label for="hoje" class="botao">Hoje</label>
 
-                                <input type="radio" name="data-lancamento" id="Ontem">
+                                <input type="radio" name="atalho-data" id="Ontem" data-valor="{{ yesterday|date:'Y-m-d' }}">
                                 <label for="Ontem" class="botao">Ontem</label>
 
-                                <input type="radio" name="data-lancamento" id="outro">
+                                <input type="radio" name="atalho-data" id="outro">
                                 <label for="outro" id="label-bnt-outro">
                                     <span id="texto-outro">Outro</span>
                                     <span class="material-symbols-outlined">calendar_month</span>
@@ -94,9 +87,9 @@
                                 </label>
                                 
                             
-                            <input type="radio" name="sentimento" id="zangado">
-                                <label for="zangado" class="caras_sentimentos">
-                                <img src="{% static 'usuario/img/angry_face.png' %}"><p>Zangado</p>
+                            <input type="radio" value="estressado" name="sentimento" id="estressado">
+                                <label for="estressado" class="caras_sentimentos">
+                                <img src="{% static 'usuario/img/angry_face.png' %}"><p>Estressado</p>
                                 </label>
                                 
                             

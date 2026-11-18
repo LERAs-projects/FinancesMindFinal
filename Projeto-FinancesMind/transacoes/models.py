@@ -1,5 +1,7 @@
 from django.db import models
 from usuario.models import Usuario
+from django.core.validators import MinValueValidator
+from decimal import Decimal
 
 EMOCOES_CHOICES = [
     ('feliz', 'Feliz'),
@@ -17,41 +19,20 @@ LANCAMENTO_CHOICES = [
 
 class Transacao(models.Model):
 
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='%(class)ss')
+    valor = models.DecimalField(max_digits=12, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
+    data = models.DateField()
+    descricao = models.TextField(blank=True)
+    emocao = models.CharField(max_length=20, choices=EMOCOES_CHOICES)
+    lancamento = models.CharField(max_length=20, choices=LANCAMENTO_CHOICES, default='unico')
+
     class Meta:
         abstract = True
 
-    data = models.DateField(null=False)
-    descricao = models.TextField(blank=True)
-    emocao = models.CharField(choices=EMOCOES_CHOICES, null=False)
 
 class Receita(Transacao):
-
-    usuario = models.ForeignKey(
-        Usuario,
-        on_delete=models.CASCADE,
-        related_name='Receita',
-    )
-    lancamento = models.CharField(choices=LANCAMENTO_CHOICES, null=False)
-
-class Transferencia(Transacao):
-
-    TIPOS_CONTAS_CHOICES = [
-        ('corrente', 'Conta-Corrente'),
-        ('poupanca', 'Conta Poupança'),
-        ('salario', 'Conta Salário'),
-        ('digital', 'Conta Digital'),
-        ('empresarial', 'Conta PJ / Empresarial'),
-        ('conjunta', 'Conta Conjunta'),
-    ]
-
-    usuario = models.ForeignKey(
-            Usuario,
-            on_delete=models.CASCADE,
-            related_name='Transferencia',
-        )
-    conta_origem = models.CharField(choices=TIPOS_CONTAS_CHOICES, default='corrente', null=False)
-    conta_destino = models.CharField(choices=TIPOS_CONTAS_CHOICES, null=False)
-
+    pass
+    
 class Despesa(Transacao):
 
     CATEGORIA_CHOICES = [
@@ -71,11 +52,5 @@ class Despesa(Transacao):
         ('outros', 'Outros'),
     ]
 
-    usuario = models.ForeignKey(
-            Usuario,
-            on_delete=models.CASCADE,
-            related_name='Despesa',
-        )
-    lancamento = models.CharField(choices=LANCAMENTO_CHOICES, null=False)
-    categoria = models.CharField(choices=CATEGORIA_CHOICES, null=False)
+    categoria = models.CharField(max_length=20, choices=CATEGORIA_CHOICES)
 
